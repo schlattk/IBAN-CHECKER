@@ -3,7 +3,12 @@ describe('iban_checker', function(){
   it('has received a number', function(){
       expect(iban_checker.iban).toBe(1);
   });
-
+  it('has an alphabet index', function(){
+      expect(iban_checker.index).toBeDefined();
+  });
+  it('has a number value associated to a letter key', function(){
+      expect(iban_checker.index.C).toBe(12);
+  })
 });
 
 
