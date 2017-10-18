@@ -2,6 +2,8 @@
 
 var Iban_checker = function(x){
   this.iban = x;
+  this.transformed_iban = 1;
+  this.valid = true;
   this.index = {A:10,
                 B:11,
                 C:12,

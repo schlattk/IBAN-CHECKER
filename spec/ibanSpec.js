@@ -1,14 +1,21 @@
 describe('iban_checker', function(){
+
   iban_checker = new Iban_checker(1);
   it('has received a number', function(){
       expect(iban_checker.iban).toBe(1);
   });
+  it ('has a transformed number',function(){
+      expect(iban_checker.transformed_iban).toBeDefined();
+  });
   it('has an alphabet index', function(){
       expect(iban_checker.index).toBeDefined();
   });
+  it ('has a valid/invalid variable',function(){
+      expect(iban_checker.valid).toBeDefined();
+  });    
   it('has a number value associated to a letter key', function(){
       expect(iban_checker.index.C).toBe(12);
-  })
+  });
 });
 
 
