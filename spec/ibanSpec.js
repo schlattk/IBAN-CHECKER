@@ -1,8 +1,7 @@
 describe('iban_checker', function(){
-
   iban_checker = new Iban_checker();
   it('has a number', function(){
-      expect(iban_checker.iban).toExist;
+      expect(iban_checker.iban).toBeDefined();
   });
   it ('has a transformed number',function(){
       expect(iban_checker.transformed_iban).toBeDefined();
@@ -21,13 +20,21 @@ describe('iban_checker', function(){
   });
 });
 
-  describe('checks whether IBAN is correct', function(){
-    iban_checker = new Iban_checker();
-    iban_checker.transform('AB12345678');
-      it('converts the mixed string into a number ', function(){
-      expect(iban_checker.transformed_iban).toBe(345678101112);
-      });
-    });
+describe('checks whether IBAN is correct', function(){
+  iban_checker = new Iban_checker();
+  iban_checker.transform('DE19760300800930875295');
+  it('converts the mixed string into a transformed string ', function(){
+      expect(iban_checker.transformed_iban).toBe('760300800930875295131419');
+  });
+});
+
+describe('checks whether IBAN is correct', function(){
+      iban_checker1 = new Iban_checker();
+      iban_checker1.transform('GB82WEST12345698765432');
+          it('converts the mixed string into a transformed string ', function(){
+          expect(iban_checker1.transformed_iban).toBe('3214282912345698765432161182');
+          });
+  });
 
     /*it('increases the balance when money is added', function(){
     account.deposit(1000);

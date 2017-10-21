@@ -49,5 +49,5 @@ var Iban_checker = function(){
     var mixed_array = this.transformed_iban.split('');
     var number_array = [];
     number_array = mixed_array.map(v => this.index[v]);
-    this.transformed_iban = parseInt(number_array.join(''));
+    this.transformed_iban = number_array.join('');
   };
