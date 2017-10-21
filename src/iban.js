@@ -1,8 +1,8 @@
 'use strict';
 
-var Iban_checker = function(x){
-  this.iban = x;
-  this.transformed_iban = 1;
+var Iban_checker = function(){
+  this.iban = '0';
+  this.transformed_iban = '1';
   this.valid = true;
   this.index = {A:10,
                 B:11,
@@ -29,5 +29,25 @@ var Iban_checker = function(x){
                 W:32,
                 X:33,
                 Y:34,
-                Z:35};
+                Z:35,
+                1:1,
+                2:2,
+                3:3,
+                4:4,
+                5:5,
+                6:6,
+                7:7,
+                8:8,
+                9:9,
+                0:0};
+  };
+
+  Iban_checker.prototype.transform = function(number){
+    this.iban = number;
+    var sliced = this.iban.slice(0,4);
+    this.transformed_iban = this.iban.slice(4) + sliced;
+    var mixed_array = this.transformed_iban.split('');
+    var number_array = [];
+    number_array = mixed_array.map(v => this.index[v]);
+    this.transformed_iban = parseInt(number_array.join(''));
   };
