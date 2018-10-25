@@ -27,4 +27,4 @@ const initialize = function(){
   controller.read();
 }
 
-document.getElementById("app").addEventListener("dblclick",initialize);
+document.getElementById("button").addEventListener("click",initialize);
